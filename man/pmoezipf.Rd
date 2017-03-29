@@ -4,7 +4,7 @@
 \alias{pmoezipf}
 \title{Cumulative function.}
 \usage{
-pmoezipf(x, alpha, beta, show.plot = F)
+pmoezipf(x, alpha, beta, log.p = FALSE, lower.tail = TRUE, show.plot = F)
 }
 \arguments{
 \item{x}{Vector of positive values.}
@@ -13,7 +13,11 @@ pmoezipf(x, alpha, beta, show.plot = F)
 
 \item{beta}{Value of the \eqn{\beta} parameter (\eqn{\beta > 0}).}
 
-\item{show.plot}{logical; if TRUE shows the plot of the distibution (default = FALSE).}
+\item{log.p}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{lower.tail}{Logical; if TRUE (default), probabilities are \eqn{P[X \leq x]}, otherwise, \eqn{P[X > x]}.}
+
+\item{show.plot}{Logical; if TRUE shows the plot of the distibution (default = FALSE).}
 }
 \value{
 The cumulative probability of each value in vector \code{x}.

@@ -1,4 +1,4 @@
-#' Convert sample vector to frequency matrix.
+#' Convert a sample vector to a frequency matrix.
 #'
 #' Converts a sequence of values into a matrix of frequencies.
 #'

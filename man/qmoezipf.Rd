@@ -4,7 +4,7 @@
 \alias{qmoezipf}
 \title{Quantile function of the distribution.}
 \usage{
-qmoezipf(p, alpha, beta)
+qmoezipf(p, alpha, beta, log.p = FALSE, lower.tail = TRUE)
 }
 \arguments{
 \item{p}{Vector of probabilities.}
@@ -12,6 +12,10 @@ qmoezipf(p, alpha, beta)
 \item{alpha}{Value of the \eqn{\alpha} parameter (\eqn{\alpha} > 1).}
 
 \item{beta}{Value of the \eqn{\beta} parameter (\eqn{\beta} > 0).}
+
+\item{log.p}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{lower.tail}{Logical; if TRUE (default), probabilities are \eqn{P[X \leq x]}, otherwise, \eqn{P[X > x]}.}
 }
 \value{
 Quantiles associated to a given probability vector \code{p}.
@@ -22,17 +26,16 @@ It requires the \code{\link{qzipfman}} function implemented into the
 \code{\link{tolerance}} package refered below.
 }
 \details{
-The calculus of the quantiles of a MOEZipf distribution for a given probability
-vector \code{p}, is obtained by computing the quartiles of a Zipf distribution with
+The quantiles of a MOEZipf distribution for a given probability
+vector \code{p}, are obtained by computing the quantiles associated to a Zipf distribution with
 the same parameter \eqn{\alpha}, and probability vector equal to:
 
-\deqn{p\prime = \frac{p \beta}{1 + p(\beta - 1)}}
+\deqn{p\prime = \frac{p\,\beta}{1 + p\,(\beta - 1)}}
 }
 \examples{
 qmoezipf(0.56, 2.5, 1.3)
 }
 \references{
-{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.
- \url{https://core.ac.uk/download/pdf/6340270.pdf?repositoryId=153}}
+{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.}
 }
 

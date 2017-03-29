@@ -14,21 +14,21 @@ moezipfR.loglikelihood(data, alpha, beta)
 \item{beta}{Value of the \eqn{\beta} parameter \eqn{(\beta > 0)}.}
 }
 \value{
-The value of the log-likelihood.
+The log-likelihood value.
 }
 \description{
-Computes the value of the log-likelihood function for a given data set and parameters
-\eqn{\alpha} and \eqn{\beta}.
+Computes the value of the log-likelihood function for a given data set and parameter values.
 }
 \details{
-The argument \code{data} is a matrix where the first column corresponds to the count,
+The argument \code{data} is a matrix where, for each row, the first column corresponds to a count,
 and the second column contains its corresponding frequency.
 
 The log-likelihood function is computed by means of the following equation:
 
 \deqn{l(\alpha, \beta; x) = -\alpha \sum_{i = 1} ^m f_{a}(x_{i}) log(x_{i}) + N (log(\beta) + \log(\zeta(\alpha)))}
 \deqn{- \sum_{i = 1} ^m f_a(x_i) log[(\zeta(\alpha) - \bar{\beta}\zeta(\alpha, x_i)(\zeta(\alpha) - \bar{\beta}\zeta(\alpha, x_i + 1)))], }
-where \eqn{N} is the sample size (\eqn{N = \sum_{i = 1} ^m x_i f_a(x_i)}), \eqn{m} the different values \eqn{x_{i}}, each one of them with absolute frequency equal to \eqn{f_{a}(x_i)}.
+where \eqn{N} is the sample size \eqn{N = \sum_{i = 1} ^m x_i f_a(x_i)}, \eqn{m} is the number of different values \eqn{x_{i}} in the sample,
+and \eqn{f_{a}(x_i)} is the absolute frequency of \eqn{x_i}.
 }
 \examples{
 data <- rmoezipf(100, 2.5, 1.3)

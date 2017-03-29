@@ -4,7 +4,7 @@
 \alias{dmoezipf}
 \title{Density function.}
 \usage{
-dmoezipf(x, alpha, beta, show.plot = F)
+dmoezipf(x, alpha, beta, log = FALSE, show.plot = F)
 }
 \arguments{
 \item{x}{Vector of positive integer values.}
@@ -13,7 +13,9 @@ dmoezipf(x, alpha, beta, show.plot = F)
 
 \item{beta}{Value of the \eqn{\beta} parameter (\eqn{\beta > 0} ).}
 
-\item{show.plot}{logical; if TRUE shows the plot of the distibution (default = FALSE).}
+\item{log}{Logical; if TRUE, probabilities p are given as log(p).}
+
+\item{show.plot}{Logical; if TRUE shows the plot of the distibution (default = FALSE).}
 }
 \value{
 The probability associated to each value in vector \code{x}.
@@ -23,7 +25,7 @@ Density function for the Marshall-Olkin Extended Zipf distribution
 with parameters \eqn{\alpha} and \eqn{\beta}.
 }
 \details{
-The probability mass function at x of the MOEZipf distribution with
+The probability mass function at a positive integer value \eqn{x} of the MOEZipf distribution with
 parameters \eqn{\alpha} and \eqn{\beta} is computed as follows:
 
 \deqn{p(x | \alpha, \beta) = \frac{x^{-\alpha} \beta \zeta(\alpha) }{[\zeta(\alpha) - \bar{\beta} \zeta (\alpha, x)] [\zeta (\alpha) - \bar{\beta} \zeta (\alpha, x + 1)]}, \alpha > 1, \beta > 0, }

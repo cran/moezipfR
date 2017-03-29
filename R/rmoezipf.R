@@ -6,8 +6,7 @@
 #' @param alpha Value of the \eqn{\alpha} parameter (\eqn{\alpha > 1}).
 #' @param beta Value of the \eqn{\beta} parameter (\eqn{\beta > 0}).
 #' @return Vector containing  the n generated numbers.
-#' @references{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.
-#'  \url{https://core.ac.uk/download/pdf/6340270.pdf?repositoryId=153}}
+#' @references{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.}
 #' @examples
 #' rmoezipf(10, 2.5, 1.3)
 #' @export

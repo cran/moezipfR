@@ -24,7 +24,6 @@ fixed parameters \eqn{\alpha} and \eqn{\beta}.
 rmoezipf(10, 2.5, 1.3)
 }
 \references{
-{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.
- \url{https://core.ac.uk/download/pdf/6340270.pdf?repositoryId=153}}
+{ Young, D. S. (2010). \emph{Tolerance: an R package for estimating tolerance intervals}. Journal of Statistical Software, 36(5), 1-39.}
 }
 

@@ -1,3 +1,25 @@
+# Hurwitz Zeta function ------------------------------
+
+.zeta_x<-function(alpha, x) {
+  if(!is.numeric(alpha) || !is.numeric(x)){
+    stop("Wrong input values!")
+  }
+
+  if(x < 1){
+    stop("Error!! The 'x' have to be greater or iqual than one.")
+  }
+
+  aux <- 0
+  if(x == 1) {
+    VGAM::zeta(alpha)
+  }
+  else {
+    VGAM::zeta(alpha) - sum((1:(x-1))^(-alpha))
+  }
+}
+
+# Likelihood functions -----------------------------
+
 .QValue <- function(alpha, beta, x){
   log(VGAM::zeta(alpha) - (1-beta)*.zeta_x(alpha, x))
 }
@@ -30,11 +52,10 @@
   result <- NULL
 
   tryCatch({
-    # statistcs <- .getSpectrumValues(x)
     statistics <- list(nSize = sum(x[, 2]), values = x[, 1], frequencies = x[, 2])
     result <- stats::optim(par = initValues, likelihoodFunc,
                            nSize = statistics$nSize, freq = statistics$frequencies,
-                           values = statistics$values, ...)
+                           values = statistics$values, hessian = TRUE, ...)
 
     return(list(results = result, stats=statistics))
   },
@@ -42,3 +63,29 @@
     print(e$message)
   })
 }
+
+# Metrics --------------------
+
+.get_AIC <- function(loglike, K) {
+  -2*loglike + 2*K
+}
+
+.get_BIC <- function(loglike, K, N) {
+  -2*loglike + K*log(N)
+}
+
+# Kolmogorov - Smirnov Test ---------------------
+
+# Utils ----------------
+
+.getConfidenceIntervals <- function(paramSD, alpha, beta, level){
+  result <- matrix(nrow=2, ncol=2)
+  levelCoef <- round(stats::qnorm(1-((1-level)/2)), 2)
+  offset <- levelCoef * paramSD
+  result[1, ] <- c(alpha - offset[1], alpha + offset[1])
+  result[2, ] <- c(beta - offset[2], beta + offset[2])
+  colnames(result) <- c('Inf. CI', 'Sup. CI')
+  rownames(result) <- c('alpha', 'beta')
+  return(result)
+}
+

@@ -16,7 +16,9 @@
 #' @param x Vector of positive values.
 #' @param alpha Value of the \eqn{\alpha} parameter (\eqn{\alpha > 1}).
 #' @param beta Value of the \eqn{\beta} parameter (\eqn{\beta > 0}).
-#' @param show.plot logical; if TRUE shows the plot of the distibution (default = FALSE).
+#' @param log.p Logical; if TRUE, probabilities p are given as log(p).
+#' @param lower.tail Logical; if TRUE (default), probabilities are \eqn{P[X \leq x]}, otherwise, \eqn{P[X > x]}.
+#' @param show.plot Logical; if TRUE shows the plot of the distibution (default = FALSE).
 #'
 #' @return The cumulative probability of each value in vector \code{x}.
 #'
@@ -26,9 +28,22 @@
 #'
 #' @seealso \code{\link{smoezipf}} for the survival probability function.
 #' @export
-pmoezipf <- function(x, alpha, beta, show.plot=F){
+pmoezipf <- function(x, alpha, beta, log.p = FALSE, lower.tail = TRUE, show.plot=F){
   srvvl <- sapply(x, .survival.default, alpha = alpha, beta = beta, simplify = T)
-  cmltv <- 1 - srvvl
+
+  if(!log.p && lower.tail){
+    cmltv <- 1 - srvvl
+  } else{
+    if(!log.p && !lower.tail){
+      cmltv <- srvvl
+    } else{
+      if(log.p && !lower.tail){
+        cmltv <- log(srvvl)
+      }
+      cmltv <- log(1-srvvl)
+    }
+  }
+
   if(show.plot){
     graphics::barplot(cmltv)
   }

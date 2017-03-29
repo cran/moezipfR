@@ -2,7 +2,7 @@
 % Please edit documentation in R/moezipfR.utils.getDataMatrix.R
 \name{moezipfR.utils.getDataMatrix}
 \alias{moezipfR.utils.getDataMatrix}
-\title{Convert sample vector to frequency matrix.}
+\title{Convert a sample vector to a frequency matrix.}
 \usage{
 moezipfR.utils.getDataMatrix(values)
 }

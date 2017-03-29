@@ -6,14 +6,14 @@
 Marshall-Olkin Extended Zipf Distribution
 }
 \description{
-Statistical utilities for the analysis of data by means of the Marshall-Olkin Extended Zipf distribution. By plotting the probabilities in log-log scale, this two parameter distribution allows a concave as well as a convex behavior of the function at the beginning of the distribution, maintaining the linearity in the tail. The model contains the Zipf model as a particular case.
+Statistical utilities for the analysis of data by means of the Marshall-Olkin Extended Zipf distribution are presented. The distribution is a two-parameter extension of the widely used Zipf model. By plotting the probabilities in log-log scale, this two-parameter extension allows a concave as well as a convex behavior of the function at the beginning of the distribution, maintaining the linearity, associated to the Zipf model, in the tail.
 }
 \details{
 \tabular{ll}{
 Package: \tab moezipfR\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2016-11-09\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2017-03-22\cr
 License: \tab GPL-3\cr
 }
 }
